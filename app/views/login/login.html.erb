@@ -1,0 +1,21 @@
+<section class="login-page">
+
+<%= form_for User.new do |user| %>
+
+    <% if user.object.errors.any? %>
+        <div class="alert alert-danger">
+            <strong>The following errors prevented saving:</strong>
+            <ul>
+                <% form.object.errors.full_messages.each do |error| %>
+                <li><%= error %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <div class=login-group">
+        <p>< user.label :email, "E-mail" %><%= user.text_field :email %></p>
+        <p>< user.label :password, "Password" %><%= user.text_field :password %></p>
+    </div>
+<% end %>
+
+</section>
