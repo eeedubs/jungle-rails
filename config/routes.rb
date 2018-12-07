@@ -17,8 +17,6 @@ Rails.application.routes.draw do
     resources :products, except: [:edit, :update, :show]
     resources :categories, except: [:edit, :update, :show]
   end
-
-
     
 
   # I've created a gif controller so I have a page I can secure later. 

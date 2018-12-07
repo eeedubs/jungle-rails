@@ -26,10 +26,10 @@
           </ul>
         </li>
       </ul>
+
       <ul class="nav navbar-nav navbar-right">
        <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-
             <span class="text-danger"><%= fa_icon 'lock', text: 'Admin' %></span>
             <span class="caret"></span>
           </a>
@@ -43,6 +43,17 @@
           <%= link_to cart_path do %>
             <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)
           <% end %>
+        </li>
+        <li>
+          <div class="user-login">
+          <% if current_user %>
+            <li>
+              <%= link_to "Logout", '/logout' %>
+            </li>
+          <% else %>
+            <%= link_to 'Login', '/login' %>&nbsp;|&nbsp;<%= link_to 'Signup', '/signup' %>
+          <% end %>
+          </div>
         </li>
       </ul>
     </div>
