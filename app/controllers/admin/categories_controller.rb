@@ -1,9 +1,7 @@
 class Admin::CategoriesController < ApplicationController
-    http_basic_authenticate_with name: 'Jungle', password: 'book', except: :not_permitted
-
-    def not_permitted
-        render plain: "You do not have access to these features."
-    end
+    before_action :authorize
+    
+    http_basic_authenticate_with name: 'ADMIN_NAME', password: 'ADMIN_PASS'
 
     def index
         @categories = Category.order(id: :asc).all
