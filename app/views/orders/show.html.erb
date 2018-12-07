@@ -16,11 +16,12 @@
         <th>Quantity Ordered</th>
         <th>Total Price</th>
       </tr>
-    </thead>
-    <tbody>
-      <%= @order.line_items.each do |item| %>
+      </thead>
+      <tbody>
+      <h4>Thank you for your order!</h4>
+      <% @order.line_items.each do |item| %>
         <td class="order-image">
-          <%= image_tag item.product.image.url class: 'main-img' %>
+          <%= image_tag item.product.image.url class:'main-img' %>
         </td>
         <td>
           <%= item.product.name %>
@@ -37,11 +38,21 @@
         <td>
           <%= item.total_price %>
         </td>
-
+        <tr></tr>
         <% end %>
-      <h4>Thank you for your order!</h4>
       </tbody>
-      </table>
+      <tfoot>
+        <tr>
+          <th colspan="5">
+            TOTAL:
+          </th>
+          <th>
+            <%= @order.total_cents / 100.0 %>
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+    <p>A confirmation e-mail was sent to <%= @order.email %></p>
   </div>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
