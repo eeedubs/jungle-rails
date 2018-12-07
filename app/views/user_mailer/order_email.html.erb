@@ -1,36 +1,16 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 6a942e81ffda9a987f50cd73ff23743b41d15591
 <!DOCTYPE html>
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-<<<<<<< HEAD
     <h1>Thanks for your order.</h1>
-    <p> 
-    Here are your order details for order <%= @order.id %>
-    </p>
+    <p> Here are your order details for order <%= @order.id %></p>
+    <% @order.line_items.each do |item| %>
+        <li><%= item.product.name %></li>
+    <% end %>
     <p>
-        <%= @order.line_items.each do |order| %>
-            <li><% order.product.name %></li>
-        <% end %>
+    Total: $<%= @order.total_cents / 100.00 %>
     </p>
-    <p> 
-    Total: $<%= @order.total_cents / 100.0 %>
-    <p>
-=======
-    <h1>Thank you for your purchase, <%= @user.name %></h1>
-    <p>
-      You have successfully signed up to example.com,
-      your username is: <%= @user.login %>.<br>
-    </p>
-    <p>
-      To login to the site, just follow this link: <%= @url %>.
-    </p>
-    <p>Thanks for joining and have a great day!</p>
->>>>>>> 6a942e81ffda9a987f50cd73ff23743b41d15591
   </body>
 </html>
