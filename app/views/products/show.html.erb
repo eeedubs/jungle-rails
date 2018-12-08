@@ -25,25 +25,48 @@
           <dt>Reviews:</dt>
           <% @ratings.reverse_each do |rating| %>
             <% if rating.product_id == @product.id %>
-            <dd>
-            "<i><%= rating.description %>"</i><br>
-            <strong>Rating: </strong><%= rating.rating %>/5
-            </dd>
-            <br>
+              <dd>"<i><%= rating.description %>"</i>
+                <br>
+                <strong>Rating: </strong>
+                <%= rating.rating %>/5
+                <% if current_user %>
+                  <% if current_user.id == rating.user_id %>
+                    <%= button_to 'Delete Review', product_rating_path(@product.id, rating.id),
+                    method: :delete,
+                    class: "danger",
+                    data: { confirm: 'Are you sure?' } %>
+                    <br><br>
+                  <% end %>
+                <% end %>
+              </dd>
             <% end %>
-          <% end %>
-          <%=form_for [@product, Rating.new] do |f| %>
-            Description:<%= f.text_field :description %>
-            <br>
-            Rating:
-            <%= f.select(:rating, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5]])) %>
-            <br>
-            <%= f.submit "Submit Review", class: "btn" %>
           <% end %>
         </dl>
       </div>
     </div>
-
   </article>
+    <div class="review-form">
+      <% if current_user %>
+      <br><br><br>
+        <%=form_for [@product, Rating.new] do |f| %>
+          <dl>
+            <dt>
+              <tr>New Review:</tr>
+            </dt>
+            <dd>
+              <%= f.text_field :description, class:"rate-field"%>
+            </dd>
+            <dt>
+              Rating:
+            </dt>
+            <dd>
+              <%= f.select(:rating, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5]]), class:"select-rating") %>
+              <%= f.submit "Submit Review", class: "accept" %>
+            </dd>
+          </dl>
+        <% end %>
+      <% end %>
+    </div>
+
 
 </section>

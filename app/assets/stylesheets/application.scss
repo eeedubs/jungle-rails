@@ -24,3 +24,32 @@ div.user-login{
 .order-image img{
   width: 150px;
 }
+
+.danger {
+  float: right;
+  background-color: coral;
+  border-radius: 10px;
+  color: black;
+}
+
+div.review-form {
+  float: right;
+}
+
+.rate-field {
+  width: 440px;
+  height: 50px;
+  margin-left: 10px;
+}
+
+.select-rating {
+  margin-left: 30px;
+}
+
+.accept {
+  float: right;
+  background-color: mediumseagreen;
+  border-radius: 10px;
+  color: black;
+  margin-top: -10px;
+}
