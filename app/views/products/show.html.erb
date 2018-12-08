@@ -22,6 +22,8 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
+          <dt>Average Rating</dt>
+          <dd><%= (Rating.where(:product_id => @product.id).sum(:rating) / Rating.where(:product_id => @product.id).length)/1.0 %></dd>
           <dt>Reviews:</dt>
           <% @ratings.reverse_each do |rating| %>
             <% if rating.product_id == @product.id %>
@@ -35,9 +37,9 @@
                     method: :delete,
                     class: "danger",
                     data: { confirm: 'Are you sure?' } %>
-                    <br><br>
                   <% end %>
                 <% end %>
+            <br><br>
               </dd>
             <% end %>
           <% end %>
@@ -47,14 +49,14 @@
   </article>
     <div class="review-form">
       <% if current_user %>
-      <br><br><br>
+      <br>
         <%=form_for [@product, Rating.new] do |f| %>
           <dl>
             <dt>
               <tr>New Review:</tr>
             </dt>
             <dd>
-              <%= f.text_field :description, class:"rate-field"%>
+              <%= f.text_area :description, rows: 3, class:"rate-field"%>
             </dd>
             <dt>
               Rating:

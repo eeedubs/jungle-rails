@@ -27,9 +27,15 @@ div.user-login{
 
 .danger {
   float: right;
+  opacity: 0.8;
   background-color: coral;
   border-radius: 10px;
   color: black;
+}
+
+.danger:hover{
+  opacity: 1;
+  text-decoration: underline;
 }
 
 div.review-form {
@@ -38,9 +44,9 @@ div.review-form {
 
 .rate-field {
   width: 440px;
-  height: 50px;
   margin-left: 10px;
 }
+
 
 .select-rating {
   margin-left: 30px;
@@ -48,8 +54,14 @@ div.review-form {
 
 .accept {
   float: right;
+  opacity: 0.8;
   background-color: mediumseagreen;
   border-radius: 10px;
   color: black;
   margin-top: -10px;
+}
+
+.accept:hover {
+  opacity: 1.0;
+  text-decoration: underline;
 }

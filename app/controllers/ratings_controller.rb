@@ -23,6 +23,8 @@ class RatingsController < ApplicationController
         redirect_to :back
     end
 
+    (Rating.where(:product_id => @product.id).sum(:rating) / Rating.where(:product_id => @product.id).length)/1.0
+
     def check
         unless current_user
             redirect_to '/'
