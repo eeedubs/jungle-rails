@@ -32,6 +32,21 @@
             <br>
             <% end %>
           <% end %>
+          <%=form_for [@product, Rating.new] do |f| %>
+            Description:<%= f.text_field :description %>
+            <br>
+            Rating:
+            <select name="review_rating" id="review_rating" %>
+              <option value="">Please select</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            <br>
+            <%= f.submit "Submit Review", class: "btn" %>
+          <% end %>
         </dl>
       </div>
     </div>
