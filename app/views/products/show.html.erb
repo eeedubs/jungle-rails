@@ -23,7 +23,7 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
           <dt>Reviews:</dt>
-          <% @ratings.each do |rating| %>
+          <% @ratings.reverse_each do |rating| %>
             <% if rating.product_id == @product.id %>
             <dd>
             "<i><%= rating.description %>"</i><br>
@@ -36,14 +36,7 @@
             Description:<%= f.text_field :description %>
             <br>
             Rating:
-            <select name="review_rating" id="review_rating" %>
-              <option value="">Please select</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
+            <%= f.select(:rating, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5]])) %>
             <br>
             <%= f.submit "Submit Review", class: "btn" %>
           <% end %>
