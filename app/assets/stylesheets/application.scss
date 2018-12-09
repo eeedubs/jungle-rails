@@ -61,6 +61,11 @@ div.review-form {
   margin-top: -10px;
 }
 
+.login-accept {
+  @extend .accept;
+  float: left;
+}
+
 .accept:hover {
   opacity: 1.0;
   text-decoration: underline;
@@ -68,4 +73,8 @@ div.review-form {
 
 .user-fail {
   color: red;
+}
+
+input.login {
+  width: 400px;
 }

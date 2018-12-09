@@ -7,11 +7,16 @@
 <% end %>
 
 <%= form_for :user, url: '/users' do |f| %>
-
-  Name: <%= f.text_field :name %>
-  Email: <%= f.text_field :email %>
-  Password: <%= f.password_field :password %>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
-  <%= f.submit "Submit" %>
+  <dl>
+    <dt>Name: </dt>
+    <dd><%= f.text_field :name, class:"login" %></dd>
+    <dt>Email: </dt>
+    <dd><%= f.text_field :email, class:"login" %></dd>
+    <dt>Password: </dt>
+    <dd><%= f.password_field :password, class:"login" %></dd>
+    <dt>Password Confirmation: <dt>
+    <dd><%= f.password_field :password_confirmation, class:"login" %></dd>
+  </dl>
+  <%= f.submit "Submit", class:"login-accept" %>
 
 <% end %>

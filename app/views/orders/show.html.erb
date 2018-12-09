@@ -52,7 +52,7 @@
     </tfoot>
   </table>
   
-  <p>A confirmation e-mail was sent to <%= @order.email %></p>
+  <p>A confirmation e-mail was sent to <%= current_user.email %></p>
   </div>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>

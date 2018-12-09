@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
 
     if order.valid?
       empty_cart!
-      redirect_to order, notice: 'Your Order has been placed.'
+      redirect_to order
       if !current_user
         UserMailer.order_email(params[:stripeEmail], order).deliver_now
       else
