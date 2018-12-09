@@ -28,3 +28,6 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 * Stripe
 
 ## Screenshots 
+
+!["Screenshot showing a sample order fulfillment"](https://github.com/eeedubs/jungle-rails/blob/master/docs/order.png)
+!["Screenshot showing the homepage, which lists all of the products that are available for purchase"](https://github.com/eeedubs/jungle-rails/blob/master/docs/products.png)
