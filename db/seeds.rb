@@ -146,8 +146,8 @@ cat3.products.create!({
 User.destroy_all
 
 user1 = User.create({
-  name: "Eric Wilson",
-  email: "edub1994@gmail.com",
+  name: "Eric Watts",
+  email: "erwa@example.com",
   password_digest: "123"
 })
 

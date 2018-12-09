@@ -4,12 +4,17 @@ class UsersController < ApplicationController
     end
 
     def create
-        user = User.new(user_params)
-        if user.save
-            session[:user_id] = user.id
-            redirect_to '/'
+        
+        if User.find_by_email(user_params[:email])
+            redirect_to '/signup', :flash => { notice: "A user with this email already exists" }
         else
-            redirect_to '/signup'
+            user = User.new(user_params)
+            if user.save
+                redirect_to '/'
+                session[:user_id] = user.id
+            else
+                redirect_to '/signup'
+            end
         end
     end
 

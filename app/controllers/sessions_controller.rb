@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
             redirect_to '/'
         else
             # If user's login doesn't work, send them back to the login form.
-            redirect_to '/login'
+            redirect_to '/login', :flash => { notice: "Wrong email and/or password." }
         end
     end
 
