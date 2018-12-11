@@ -4,9 +4,9 @@ RSpec.describe Product, type: :model do
   cat1 = Category.new(name: "Doggos")
   product1 = Product.new(name: 'ABC', price: 180.00, quantity: 20, category: cat1)
   product2 = Product.new(name: 'DEF', price: 140.00, quantity: 43, category: cat1)
-  product3 = Product.new(name: 'HIJ', price: 70.00, quantity: 12, category: cat1)
-  product4 = Product.new(name: 'KLM', price: 450.00, quantity: 3, category: cat1)
-  product5 = Product.new(name: 'NOP', price: 235.00, quantity: 99, category: cat1)
+  product3 = Product.new(name: 'GHI', price: 70.00, quantity: 12, category: cat1)
+  product4 = Product.new(name: 'JKL', price: 450.00, quantity: 3, category: cat1)
+  product5 = Product.new(name: 'MNO', price: 235.00, quantity: 99, category: cat1)
   describe ".create" do
     context "given a valid product" do
       it "returns true" do
